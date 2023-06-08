@@ -1,7 +1,12 @@
-// import express from "express";
+import express from "express";
 // import { getUser, createUser } from "../controllers/users";
 
-// const router = express();
+const router = express();
 
 // router.get("/signup", getUser);
-// router.post("/signup", createUser);
+console.log("ye chala");
+router.post("/signup", (req, res) => {
+    console.log("from router = ", req.body);
+});
+
+export default router;
