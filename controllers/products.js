@@ -10,3 +10,12 @@ export const createProduct = async (req, res) => {
         console.log(error);
     }
 };
+
+export const getProducts = async (req, res) => {
+    try {
+        const data = await Product.find({});
+        res.send(JSON.stringify(data));
+    } catch (error) {
+        console.log("getProducts error = ", error);
+    }
+};
