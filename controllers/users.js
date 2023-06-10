@@ -33,9 +33,18 @@ export const loginUser = async (req, res) => {
         const haveAccount = await User.findOne({ $and: filter });
         // console.log(haveAccount);
         if (haveAccount) {
+            const sendToFrontend = {
+                _id: haveAccount._id,
+                firstName: haveAccount.firstName,
+                lastName: haveAccount.lastName,
+                email: haveAccount.email,
+                password: haveAccount.password,
+                image: haveAccount.image,
+            };
             res.send({
                 message: "User and Pasword is registered...Good",
                 alert: true,
+                backendData: sendToFrontend,
             });
             // console.log("registered ");
         } else {
