@@ -24,9 +24,7 @@ app.get("/", (req, res) => {
 // **************** Payment Gateway *************** \\
 // console.log(process.env.STRIPE_SECRET_KEY);
 
-const stripe = new Stripe(
-    "sk_test_51NJWf9SBn3VU9HQMpgJBo1c66gc7vKDS5mkpQVUAopJiETBOWtkJCp963OthplmALm4Iq8uieQLKw5lyVgc9QhD2003XDEJh2U"
-);
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
 // const stripe  = new Stripe(process.env.STRIPE_SECRET_KEY)
 
