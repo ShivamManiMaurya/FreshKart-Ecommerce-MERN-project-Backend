@@ -22,11 +22,8 @@ app.get("/", (req, res) => {
 });
 
 // **************** Payment Gateway *************** \\
-// console.log(process.env.STRIPE_SECRET_KEY);
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
-
-// const stripe  = new Stripe(process.env.STRIPE_SECRET_KEY)
 
 app.post("/create-checkout-session", async (req, res) => {
     try {
@@ -62,52 +59,12 @@ app.post("/create-checkout-session", async (req, res) => {
         };
 
         const session = await stripe.checkout.sessions.create(params);
-        // console.log(session)
         res.status(200).json(session.id);
     } catch (err) {
         res.status(err.statusCode || 500).json(err.message);
     }
 });
-// ***************************************************************************************************
 
-// This is your test secret API key.
-// const stripe = new Stripe(
-//     "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"
-// );
-
-// const calculateOrderAmount = (items) => {
-//     // Replace this constant with a calculation of the order's amount
-//     // Calculate the order total on the server to prevent
-//     // people from directly manipulating the amount on the client
-//     console.log("third");
-//     return 1400;
-// };
-
-// app.post("/create-payment-intent", async (req, res) => {
-//     const { items } = req.body;
-
-//     console.log(items);
-//     // Create a PaymentIntent with the order amount and currency
-//     try {
-//         console.log("first");
-//         const paymentIntent = await stripe.paymentIntents.create({
-//             amount: calculateOrderAmount(items),
-//             currency: "inr",
-//             automatic_payment_methods: {
-//                 enabled: true,
-//             },
-//         });
-//         console.log("second");
-//         console.log(paymentIntent);
-//         res.send({
-//             clientSecret: paymentIntent.client_secret,
-//         });
-//     } catch (error) {
-//         res.send(error);
-//     }
-// });
-
-//////////////////////////////////////////////////////////////
 const CONNECTION_URL = process.env.MONGODB_CONNECTION_URL;
 const PORT = process.env.PORT || 8080;
 

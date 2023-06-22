@@ -40,8 +40,8 @@ Users should be able to:
 
 ### Links
 
--   [Github Solution](https://github.com/ShivamManiMaurya/FreshKart-Ecommerce-MERN-project-FrontEnd)
--   [Live Site]()
+-   [Github Solution](https://github.com/ShivamManiMaurya/FreshKart-Ecommerce-MERN-project-Backend)
+-   [Backend Live Site](https://freshkart-ecommerce-mern-project-backend.onrender.com)
 
 ## My process
 
